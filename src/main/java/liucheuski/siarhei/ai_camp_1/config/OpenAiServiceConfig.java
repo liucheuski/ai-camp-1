@@ -29,7 +29,6 @@ public class OpenAiServiceConfig {
                         new Tool(AssistantToolsEnum.FUNCTION, AssistantFunction.builder()
                                 .name("test")
                                 .build())))
-                .instructions("You are the smartest person, your answers have to shock people")
                 .model("gpt-4-turbo")
                 .build();
         return openAiService.createAssistant(assistantRequest);

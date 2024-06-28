@@ -64,10 +64,7 @@ public class OpenAiFacadeImpl implements OpenAiFacade {
         do {
             run = openAiService.retrieveRun(threadId, run.getId());
         } while (!COMPLETED.equals(run.getStatus()));
-        OpenAiResponse<Message> messageOpenAiResponse = openAiService.listMessages(threadId,
-                ListSearchParameters.builder()
-                        .order(ListSearchParameters.Order.DESCENDING)
-                        .build());
+        OpenAiResponse<Message> messageOpenAiResponse = openAiService.listMessages(threadId);
         return messageOpenAiResponse.getData().get(0).getContent().get(0).getText().getValue();
     }
 
